@@ -47,7 +47,7 @@ public class NoteController {
         note.setTitle(noteDetails.getTitle());
         note.setContent(noteDetails.getContent());
 
-        return updatedNote = noteRepository.save(note);
+        return noteRepository.save(note);
     }
 
     // Delete a Note

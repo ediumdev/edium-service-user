@@ -9,7 +9,14 @@ addons:
     organization: dolphin
     token:
       secure: "${SONAR_TOKEN}"
-  mariadb: '10.2'
+  apt:
+    sources:
+    - mariadb-10.2
+
+    packages:
+    - mariadb-server
+    - mariadb-client
+    - libmariadbclient-dev
 env:
   global:
   - secure: jXIBkLExEbXqqnWeKaTdNe4HhR7Tx7+aExA7vf36RZsXnXDgnJY3kKY9dJuVbzusYbJ3UcgbOkSOh7aul7Bz0zJZbbqW429ay273PNSI/VGq4Vm9dGsS2z2VTArG+0y0qf+12as0nBd7MTJuq/42g/rrcl4smYJCdhF1KHHmyznrPzVuluc+bFhiElWiMetytt/GXU7po8Bsd5GrIzbYGUvnSs1FEJLnoybR1OhCKb25ZKy4h2Dd3Vs/UFSv8K9R7VygjyfPLDacdE0bTaRcvfi6dCEi3swxLNl2uzJQp13tjIx9xWGDgz9rV+AljsNF0Thbk+bxmGTwq9dm3wuo5+LgX4TcSpuGhZb0hmdP8MhOjCQZZJVt5hIGD0ZMi+k4kR8sBqf9hVNgThKGh4ouEtLLZ3ySKJEXnQ0HT+FSSWEgHKkTYsxXt77TLwOT18GucK/VZPiq3D42oZSu029QMORwcNWpCn1B9zX/cTv+c1DkS88ye2oAA9NWRjAuVUAs02/3yVte4H1gkZrByuJIAfRmmeGbX8YnUxqT2HoXZwtHn8vU5u2knnLru9ojLv6k7ZgdsRHfdsDuoXkgRMdJNfxBYuyGuW8CB5pliMQARJckOkThMOAkUfi2bnqukLeGxzbIuNlQ8Jok9HcAGe5wrW4C5BU94XpHQtke4RR+sXA=
@@ -20,7 +27,7 @@ env:
   - secure: esqY0XrKm+d6yv9Ek7ysU2+9GmxYd+exPzsVZmsNu1Gboz4WOlKZq5e+e0As4DPWff9WdP2yPwe44XtPFSkHJVEAnEzV8VxOEOzoqqrMPxvxmGx5Yv2c/CkCd1VN5sLaxVO89yBkWpDMYwLN6cr6WbLP9TSElbJMSXLa9rn1Pg9xf5nLFgfbHEvkEghG95vTfFuKOyZjVYk1MC1P4EnH9+L4ChkgohjJ3fpIT/7jD2abqmnsSvOxmGNka8EqOug4bVSoRSwWM1VDEKyQsC8SGAuOMnUlLhP3Tk7/HOeEnohvgGep6R7x9unQ01hudhoNH057KKUH2lxJLgI1zUM2z433KUj0WZ2wX0mAadcmRwaSUImKmWtYIkMxxeRdF/HRnoslgdQoMmLiX4EAEI2mVMbWX4QIxWHSQzoVZWoOQGMbQwABt3HbgfLWOz46/OB73phnmRciMI/ju43OKYHi15e/Cj9iIzkd04RIsWeO7O3gSIT05DpAxZgcNiXIVOtnX4a3qX2C2xQyaaBlVkhSKgDTG0JZLsatCAElNh/xKO2OwXrspquRyXEUNlmEuvoAIUJ4SDiL3NHl8Y9q0XEhU/AxxzXghbejWlkvrKAgp1FzOF6GIph5PMWoxplCjNaUDzqIztmXoTR9Dm3/vEEJqT4GLsl7WgjsztKEq/9xWXI=
 before_script:
 - mysql -u root -e 'CREATE DATABASE dolphin;'
-- mysql -u root -e "CREATE USER 'dolphin'@'localhost' IDENTIFIED BY 'dolphinX2018a@';"
+- mysql -u root -e "CREATE USER 'dolphin'@'localhost' IDENTIFIED BY 'dolphinX2018';"
 - mysql -u root -e "GRANT ALL ON dolphin.* TO 'dolphin'@'localhost';"
 script:
 - "./mvnw clean install -B"

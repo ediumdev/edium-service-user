@@ -47,8 +47,7 @@ public class NoteController {
         note.setTitle(noteDetails.getTitle());
         note.setContent(noteDetails.getContent());
 
-        Note updatedNote = noteRepository.save(note);
-        return updatedNote;
+        return updatedNote = noteRepository.save(note);
     }
 
     // Delete a Note
@@ -58,7 +57,6 @@ public class NoteController {
                 .orElseThrow(() -> new ResourceNotFoundException("Note", "id", noteId));
 
         noteRepository.delete(note);
-        System.out.println("test");
 
         return ResponseEntity.ok().build();
     }

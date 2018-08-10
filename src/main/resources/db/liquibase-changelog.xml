@@ -5,7 +5,4 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
     
-    <changeSet author="hohien (generated)" id="1533876595421-1">
-        <modifyDataType columnName="content" newDataType="varchar(500)" tableName="notes"/>
-    </changeSet>
 </databaseChangeLog>
